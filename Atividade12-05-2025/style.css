@@ -1,0 +1,23 @@
+#topo {
+    /*border-left: 10px solid blue;*/
+    color: blueviolet;
+    background-color: yellow;
+    margin-left: 0px;
+    padding: 5px;
+}
+
+#preencher {
+    background-color:   darkkhaki;
+    margin: 0px;
+}
+
+.campo123 {
+    background-color: sandybrown ;
+}
+
+body {
+    background-image: url(https://ospedagogicos.com.br/wp-content/uploads/2024/11/concurso-caesb.jpg);
+    background-position: initial;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
