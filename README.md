@@ -1,2 +1,2 @@
-# ProjetosGit
-GIT
+# Atividades da Faculdade
+Atividades Gabriel Emídio Front-End
