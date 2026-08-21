@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula Prática // terminal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scanlines"></div>
+
+<div class="terminal">
+
+    <div class="terminal-barra">
+        <span class="dot vermelho"></span>
+        <span class="dot amarelo"></span>
+        <span class="dot verde"></span>
+        <span class="terminal-titulo">aula-pratica@shell:~</span>
+    </div>
+
+    <div class="terminal-corpo">
+
+        <h2 id="area"><span class="prompt">$</span> aguardando login<span class="cursor">_</span></h2>
+
+        <!-- Formulário de acesso (nome e curso) -->
+        <form id="formAcesso" class="formulario" onsubmit="entrar(event)">
+            <label class="campo">
+                <span class="prompt">&gt; nome:</span>
+                <input type="text" id="inputNome" placeholder="digite seu nome" autocomplete="off" required>
+            </label>
+            <label class="campo">
+                <span class="prompt">&gt; curso:</span>
+                <input type="text" id="inputCurso" placeholder="digite o curso" autocomplete="off" required>
+            </label>
+            <button type="submit" class="botao">executar acesso.sh</button>
+        </form>
+
+        <!-- Formulário de notas (aparece depois do acesso) -->
+        <form id="formNotas" class="formulario oculto" onsubmit="calcularMedia(event)">
+            <label class="campo">
+                <span class="prompt">&gt; nota_01:</span>
+                <input type="number" id="inputNota1" placeholder="0.0 - 10.0" step="0.1" min="0" max="10" autocomplete="off" required>
+            </label>
+            <label class="campo">
+                <span class="prompt">&gt; nota_02:</span>
+                <input type="number" id="inputNota2" placeholder="0.0 - 10.0" step="0.1" min="0" max="10" autocomplete="off" required>
+            </label>
+            <label class="campo">
+                <span class="prompt">&gt; nota_03:</span>
+                <input type="number" id="inputNota3" placeholder="0.0 - 10.0" step="0.1" min="0" max="10" autocomplete="off" required>
+            </label>
+            <button type="submit" class="botao">executar media.sh</button>
+        </form>
+
+        <!-- Resultado da média -->
+        <div id="resultado" class="resultado"></div>
+
+        <button id="botaoSair" class="botao botao-sair oculto" onclick="sair()">executar logout.sh</button>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
