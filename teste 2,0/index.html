@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de vendas</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <div class="shell">
+        <p class="eyebrow">Gestão de bebidas</p>
+        <h1>Saiba quanto sua venda precisa render.</h1>
+        <p class="intro">
+          Informe o custo dos ingredientes e o preço de venda. A calculadora
+          mostra o lucro de cada bebida e o volume necessário para alcançar sua
+          meta semanal.
+        </p>
+
+        <div class="layout">
+          <form class="panel" id="sales-form">
+            <h2>Dados da bebida</h2>
+            <div class="field">
+              <label for="ingredient-cost"
+                >Custo dos ingredientes por unidade</label
+              >
+              <input
+                id="ingredient-cost"
+                name="ingredient-cost"
+                type="number"
+                min="0"
+                step="0.01"
+                placeholder="Ex.: 2,00"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="sale-price">Preço final de venda</label>
+              <input
+                id="sale-price"
+                name="sale-price"
+                type="number"
+                min="0"
+                step="0.01"
+                placeholder="Ex.: 5,00"
+                required
+              />
+            </div>
+            <div class="field">
+              <label for="weekly-goal">Meta semanal de lucro</label>
+              <input
+                id="weekly-goal"
+                name="weekly-goal"
+                type="number"
+                min="0"
+                step="0.01"
+                placeholder="Ex.: 800,00"
+                required
+              />
+            </div>
+            <button type="submit">Calcular resultado</button>
+            <p class="message" id="message" role="alert"></p>
+          </form>
+
+          <section class="panel" aria-live="polite">
+            <div class="target">
+              <span>Meta de lucro semanal</span>
+              <strong id="goal-value">R$ 0,00</strong>
+            </div>
+            <div class="results">
+              <div class="result">
+                <span>Lucro por unidade</span>
+                <strong id="unit-profit">R$ 0,00</strong>
+              </div>
+              <div class="result">
+                <span>Unidades necessárias</span>
+                <strong id="units-needed">0</strong>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
