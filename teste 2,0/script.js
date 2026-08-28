@@ -34,10 +34,44 @@ const unitProfit = document.querySelector("#unit-profit");
 const unitsNeeded = document.querySelector("#units-needed");
 const goalValue = document.querySelector("#goal-value");
 const message = document.querySelector("#message");
+const dailySalesForm = document.querySelector("#daily-sales-form");
+const salesHistory = document.querySelector("#sales-history");
+const totalUnits = document.querySelector("#total-units");
+const dailyMessage = document.querySelector("#daily-message");
+const salesStorageKey = "brownie-sales-history";
 const currency = new Intl.NumberFormat("pt-BR", {
   style: "currency",
   currency: "BRL",
 });
+
+function loadSalesHistory() {
+  try {
+    return JSON.parse(localStorage.getItem(salesStorageKey)) || [];
+  } catch {
+    return [];
+  }
+}
+
+function renderSalesHistory() {
+  const history = loadSalesHistory();
+  const total = history.reduce((sum, sale) => sum + sale.quantity, 0);
+  totalUnits.textContent = `${total} ${total === 1 ? "unidade" : "unidades"}`;
+
+  if (history.length === 0) {
+    salesHistory.innerHTML = '<p class="empty-history">Nenhuma venda registrada ainda.</p>';
+    return;
+  }
+
+  salesHistory.innerHTML = history
+    .map(
+      (sale) => `
+        <div class="history-row">
+          <time datetime="${sale.date}">${new Date(`${sale.date}T12:00:00`).toLocaleDateString("pt-BR")}</time>
+          <strong>${sale.quantity} ${sale.quantity === 1 ? "brownie vendido" : "brownies vendidos"}</strong>
+        </div>`,
+    )
+    .join("");
+}
 
 salesForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -64,3 +98,25 @@ salesForm.addEventListener("submit", (event) => {
     unitsNeeded.textContent = "0";
   }
 });
+
+dailySalesForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const unitsSold = Number(
+    document.querySelector("#units-sold-today").value,
+  );
+
+  if (!Number.isInteger(unitsSold) || unitsSold < 1) {
+    dailyMessage.textContent = "Informe uma quantidade inteira maior que zero.";
+    return;
+  }
+
+  const history = loadSalesHistory();
+  history.unshift({ date: new Date().toISOString().slice(0, 10), quantity: unitsSold });
+  localStorage.setItem(salesStorageKey, JSON.stringify(history));
+  dailySalesForm.reset();
+  dailyMessage.textContent = "Venda registrada com sucesso.";
+  renderSalesHistory();
+});
+
+renderSalesHistory();

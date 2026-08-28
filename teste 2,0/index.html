@@ -106,6 +106,46 @@
             </div>
           </section>
         </div>
+
+        <form class="panel daily-sales" id="daily-sales-form">
+          <div>
+            <p class="eyebrow">Registro rápido</p>
+            <h2>Vendas de hoje</h2>
+            <p class="section-description">
+              Anote quantos brownies foram vendidos hoje para acompanhar seu
+              movimento.
+            </p>
+          </div>
+          <div class="daily-sales-action">
+            <label for="units-sold-today">Unidades vendidas hoje</label>
+            <div class="inline-field">
+              <input
+                id="units-sold-today"
+                name="units-sold-today"
+                type="number"
+                min="1"
+                step="1"
+                placeholder="Ex.: 12"
+                required
+              />
+              <button type="submit">Registrar Venda do Dia</button>
+            </div>
+            <p class="message" id="daily-message" role="status"></p>
+          </div>
+        </form>
+
+        <section class="panel history" aria-labelledby="history-title">
+          <div class="history-heading">
+            <div>
+              <p class="eyebrow">Acompanhe seu ritmo</p>
+              <h2 id="history-title">Histórico de Vendas</h2>
+            </div>
+            <strong id="total-units">0 unidades</strong>
+          </div>
+          <div class="history-list" id="sales-history">
+            <p class="empty-history">Nenhuma venda registrada ainda.</p>
+          </div>
+        </section>
       </div>
     </main>
     <script src="script.js"></script>

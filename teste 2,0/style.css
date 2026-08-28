@@ -203,6 +203,97 @@ h1 {
   font-size: 1.45rem;
 }
 
+.daily-sales,
+.history {
+  margin-top: 22px;
+}
+
+.daily-sales {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.daily-sales h2,
+.history h2 {
+  margin-bottom: 8px;
+}
+
+.section-description {
+  max-width: 430px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.daily-sales-action {
+  flex: 0 1 430px;
+}
+
+.inline-field {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+}
+
+.inline-field input {
+  min-width: 110px;
+}
+
+.inline-field button {
+  width: auto;
+  min-width: 205px;
+  margin-top: 0;
+}
+
+.history-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.history-heading .eyebrow {
+  margin-bottom: 8px;
+}
+
+.history-heading strong {
+  color: var(--accent-dark);
+  font: 700 0.9rem Arial, sans-serif;
+}
+
+.history-list {
+  display: grid;
+}
+
+.history-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-family: Arial, sans-serif;
+}
+
+.history-row time {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.history-row strong {
+  color: var(--ink);
+}
+
+.empty-history {
+  margin: 20px 0 2px;
+  color: var(--muted);
+  font-style: italic;
+}
+
 .field {
   margin-bottom: 20px;
 }
@@ -332,5 +423,21 @@ button:hover {
 
   .layout {
     grid-template-columns: 1fr;
+  }
+
+  .daily-sales {
+    display: block;
+  }
+
+  .daily-sales-action {
+    margin-top: 24px;
+  }
+
+  .inline-field {
+    display: grid;
+  }
+
+  .inline-field button {
+    width: 100%;
   }
 }
