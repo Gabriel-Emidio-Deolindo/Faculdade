@@ -1,13 +1,80 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Simulador de Banco</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+        background-color: #121212;
+        color: #ffffff;
+      }
+      .painel {
+        background: #1e1e1e;
+        padding: 30px;
+        border-radius: 12px;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        border: 1px solid #333;
+      }
+      h1 {
+        color: #007acc;
+      }
+      input {
+        padding: 12px;
+        margin: 15px 0;
+        border: 1px solid #444;
+        border-radius: 6px;
+        width: 80%;
+        font-size: 16px;
+        background-color: #2d2d2d;
+        color: white;
+      }
+      button {
+        padding: 12px 24px;
+        margin: 5px;
+        border: none;
+        border-radius: 6px;
+        background: #007acc;
+        color: white;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background 0.3s;
+      }
+      button:hover {
+        background: #005f9e;
+      }
+      #mensagem {
+        margin-top: 20px;
+        font-weight: bold;
+        min-height: 20px;
+      }
+    </style>
   </head>
   <body>
-    <!-- comentário -->
-    <h1>Tudo funcionando perfeitamente!</h1>
+    <div class="painel">
+      <h1>Banco UBEC - Conta do Gabriel</h1>
+      <h2>Saldo Atual: R$ <span id="saldoAtual">1000.00</span></h2>
+
+      <input
+        type="number"
+        id="valorInput"
+        placeholder="Digite o valor"
+        min="0"
+        step="0.01"
+      />
+      <br />
+      <button onclick="realizarDeposito()">Depositar</button>
+      <button onclick="realizarSaque()">Sacar</button>
+
+      <p id="mensagem"></p>
+    </div>
+
+    <!-- Puxando o seu arquivo JS com o nome exato -->
     <script src="spript.js"></script>
   </body>
 </html>
