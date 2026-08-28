@@ -3,23 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora de vendas</title>
+    <title>Brownie da faculdade | Calculadora de vendas</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main class="page">
+      <div class="falling-strawberries" aria-hidden="true">
+        <span>🍓</span><span>🍓</span><span>🍓</span> <span>🍓</span
+        ><span>🍓</span><span>🍓</span>
+      </div>
       <div class="shell">
-        <p class="eyebrow">Gestão de bebidas</p>
-        <h1>Saiba quanto sua venda precisa render.</h1>
-        <p class="intro">
-          Informe o custo dos ingredientes e o preço de venda. A calculadora
-          mostra o lucro de cada bebida e o volume necessário para alcançar sua
-          meta semanal.
-        </p>
+        <header class="hero">
+          <div>
+            <p class="eyebrow">Brownie da faculdade</p>
+            <h1>Docinho no intervalo, lucro na semana.</h1>
+            <p class="intro">
+              Descubra quantos brownies vender para chegar à sua meta. É só
+              informar seus custos, o preço de venda e o objetivo da semana.
+            </p>
+          </div>
+          <div class="brand-art" aria-label="Decoração da marca">
+            <figure class="character-card strawberry">
+              <img
+                src="imagens/moranguinho.png"
+                alt="Moranguinho"
+                onload="this.nextElementSibling.hidden = true"
+                onerror="this.hidden = true"
+              />
+              <span aria-hidden="true">🍓</span>
+            </figure>
+            <figure class="character-card kitty">
+              <img
+                src="imagens/hello-kitty.png"
+                alt="Hello Kitty"
+                onload="this.nextElementSibling.hidden = true"
+                onerror="this.hidden = true"
+              />
+              <span aria-hidden="true">🎀</span>
+            </figure>
+          </div>
+        </header>
 
         <div class="layout">
           <form class="panel" id="sales-form">
-            <h2>Dados da bebida</h2>
+            <h2>Dados do brownie</h2>
             <div class="field">
               <label for="ingredient-cost"
                 >Custo dos ingredientes por unidade</label

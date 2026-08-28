@@ -1,13 +1,13 @@
 :root {
-  --ink: #173042;
-  --muted: #62727b;
-  --paper: #f7f4ed;
-  --panel: #fffdf8;
-  --line: #ddd8cc;
-  --accent: #e76f51;
-  --accent-dark: #bd4e35;
-  --teal: #2a9d8f;
-  --shadow: 0 20px 55px rgba(23, 48, 66, 0.12);
+  --ink: #4f263b;
+  --muted: #805c6d;
+  --paper: #fff5f8;
+  --panel: #fffafd;
+  --line: #efd4df;
+  --accent: #e85d83;
+  --accent-dark: #bd3f66;
+  --teal: #b95777;
+  --shadow: 0 20px 55px rgba(145, 61, 91, 0.14);
 }
 
 * {
@@ -18,19 +18,142 @@ body {
   margin: 0;
   min-height: 100vh;
   color: var(--ink);
-  background: var(--paper);
+  background: linear-gradient(
+    135deg,
+    #ff1493 0%,
+    #ff69b4 35%,
+    #ffd6e8 72%,
+    #fff1f7 100%
+  );
   font-family: Georgia, "Times New Roman", serif;
 }
 
 .page {
+  position: relative;
   min-height: 100vh;
+  overflow: hidden;
   padding: 7vh 6vw;
   background:
-    radial-gradient(circle at 85% 12%, #f5c4a6 0, transparent 25%),
-    linear-gradient(135deg, #f7f4ed 0%, #eef5f1 100%);
+    linear-gradient(135deg, rgba(255, 20, 147, 0.22), transparent 48%),
+    radial-gradient(circle at 10% 90%, #f7d8c8 0, transparent 22%);
+}
+
+.hero {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 36px;
+}
+
+.brand-art {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: end;
+  gap: 12px;
+  padding-bottom: 12px;
+}
+
+.character-card {
+  position: relative;
+  display: grid;
+  width: 92px;
+  height: 118px;
+  place-items: center;
+  margin: 0;
+  overflow: hidden;
+  border: 3px solid #fff;
+  border-radius: 48% 48% 12px 12px;
+  box-shadow: 0 9px 20px rgba(145, 61, 91, 0.16);
+}
+
+.character-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.character-card span {
+  position: absolute;
+  font-size: 2.8rem;
+}
+
+.strawberry {
+  background: #ffd7df;
+  transform: rotate(-5deg);
+}
+.kitty {
+  background: #f7d9ec;
+  transform: rotate(5deg);
+}
+
+.falling-strawberries {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.falling-strawberries span {
+  position: absolute;
+  top: -12vh;
+  color: #d92e59;
+  font-size: clamp(1.3rem, 2.5vw, 2.2rem);
+  filter: drop-shadow(0 5px 4px rgba(137, 35, 73, 0.18));
+  animation: fall linear infinite;
+}
+
+.falling-strawberries span:nth-child(1) {
+  left: 8%;
+  animation-duration: 11s;
+  animation-delay: -4s;
+}
+.falling-strawberries span:nth-child(2) {
+  left: 21%;
+  animation-duration: 14s;
+  animation-delay: -9s;
+}
+.falling-strawberries span:nth-child(3) {
+  left: 37%;
+  animation-duration: 12s;
+  animation-delay: -2s;
+}
+.falling-strawberries span:nth-child(4) {
+  left: 54%;
+  animation-duration: 16s;
+  animation-delay: -12s;
+}
+.falling-strawberries span:nth-child(5) {
+  left: 69%;
+  animation-duration: 13s;
+  animation-delay: -7s;
+}
+.falling-strawberries span:nth-child(6) {
+  left: 84%;
+  animation-duration: 15s;
+  animation-delay: -10s;
+}
+
+@keyframes fall {
+  0% {
+    transform: translate3d(0, -12vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate3d(32px, 55vh, 0) rotate(150deg);
+  }
+  100% {
+    transform: translate3d(-28px, 115vh, 0) rotate(320deg);
+    opacity: 0.1;
+  }
 }
 
 .shell {
+  position: relative;
+  z-index: 1;
   width: min(980px, 100%);
   margin: 0 auto;
 }
@@ -106,7 +229,7 @@ input {
 }
 
 input:focus {
-  outline: 3px solid rgba(42, 157, 143, 0.22);
+  outline: 3px solid rgba(232, 93, 131, 0.22);
   border-color: var(--teal);
 }
 
@@ -196,6 +319,15 @@ button:hover {
 
   .intro {
     margin-bottom: 28px;
+  }
+
+  .hero {
+    display: block;
+  }
+
+  .brand-art {
+    justify-content: center;
+    padding: 8px 0 24px;
   }
 
   .layout {
