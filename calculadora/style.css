@@ -26,6 +26,7 @@ body {
     #fff1f7 100%
   );
   font-family: Georgia, "Times New Roman", serif;
+  -webkit-text-size-adjust: 100%;
 }
 
 .page {
@@ -191,6 +192,7 @@ h1 {
 }
 
 .panel {
+  min-width: 0;
   padding: clamp(24px, 4vw, 40px);
   border: 1px solid rgba(221, 216, 204, 0.8);
   border-radius: 8px;
@@ -316,7 +318,7 @@ input {
   color: var(--ink);
   background: #fff;
   font:
-    1.05rem Georgia,
+    16px Georgia,
     "Times New Roman",
     serif;
 }
@@ -407,7 +409,10 @@ button:hover {
 
 @media (max-width: 700px) {
   .page {
-    padding: 42px 20px;
+    padding: max(32px, env(safe-area-inset-top))
+      max(16px, env(safe-area-inset-right))
+      max(32px, env(safe-area-inset-bottom))
+      max(16px, env(safe-area-inset-left));
   }
 
   .intro {
@@ -421,6 +426,10 @@ button:hover {
   .brand-art {
     justify-content: center;
     padding: 8px 0 24px;
+  }
+
+  .panel {
+    padding: 24px 20px;
   }
 
   .layout {
@@ -441,5 +450,24 @@ button:hover {
 
   .inline-field button {
     width: 100%;
+  }
+
+  .history-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .target strong,
+  .result strong {
+    font-size: 1.45rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .falling-strawberries span,
+  button {
+    animation: none;
+    transition: none;
   }
 }
