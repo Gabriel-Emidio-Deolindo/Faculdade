@@ -58,7 +58,8 @@ function renderSalesHistory() {
   totalUnits.textContent = `${total} ${total === 1 ? "unidade" : "unidades"}`;
 
   if (history.length === 0) {
-    salesHistory.innerHTML = '<p class="empty-history">Nenhuma venda registrada ainda.</p>';
+    salesHistory.innerHTML =
+      '<p class="empty-history">Nenhuma venda registrada ainda.</p>';
     return;
   }
 
@@ -102,9 +103,7 @@ salesForm.addEventListener("submit", (event) => {
 dailySalesForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const unitsSold = Number(
-    document.querySelector("#units-sold-today").value,
-  );
+  const unitsSold = Number(document.querySelector("#units-sold-today").value);
 
   if (!Number.isInteger(unitsSold) || unitsSold < 1) {
     dailyMessage.textContent = "Informe uma quantidade inteira maior que zero.";
@@ -112,7 +111,10 @@ dailySalesForm.addEventListener("submit", (event) => {
   }
 
   const history = loadSalesHistory();
-  history.unshift({ date: new Date().toISOString().slice(0, 10), quantity: unitsSold });
+  history.unshift({
+    date: new Date().toISOString().slice(0, 10),
+    quantity: unitsSold,
+  });
   localStorage.setItem(salesStorageKey, JSON.stringify(history));
   dailySalesForm.reset();
   dailyMessage.textContent = "Venda registrada com sucesso.";

@@ -262,7 +262,9 @@ h1 {
 
 .history-heading strong {
   color: var(--accent-dark);
-  font: 700 0.9rem Arial, sans-serif;
+  font:
+    700 0.9rem Arial,
+    sans-serif;
 }
 
 .history-list {
