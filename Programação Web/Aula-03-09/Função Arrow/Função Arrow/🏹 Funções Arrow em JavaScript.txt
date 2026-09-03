@@ -1,0 +1,321 @@
+🏹 Funções Arrow em JavaScript
+As funções arrow (ou funções flecha) foram introduzidas no ES6 (ECMAScript 2015) e oferecem uma sintaxe mais concisa para escrever funções em JavaScript.
+
+Sintaxe básica:
+javascript
+// Função tradicional
+function somar(a, b) {
+    return a + b;
+}
+
+// Função arrow equivalente
+const somar = (a, b) => {
+    return a + b;
+}
+
+// Versão ainda mais concisa (quando tem apenas uma expressão)
+const somar = (a, b) => a + b;
+Características importantes:
+Sintaxe reduzida: Remove a palavra-chave function e usa =>
+
+Return implícito: Se o corpo da função tiver apenas uma expressão, o retorno é automático
+
+Não tem seu próprio this: Herda o this do contexto onde foi definida
+
+Não pode ser usada como construtora: Não funciona com new
+
+
+
+Exemplo de Função Arrow com base no seu código
+Código original (tradicional):
+javascript
+// Função tradicional
+function calcularQuadrado(numero) {
+    return numero * numero;
+}
+Mesma função com Arrow Function:
+javascript
+// Arrow function com sintaxe completa
+const calcularQuadrado = (numero) => {
+    return numero * numero;
+};
+
+// Arrow function com retorno implícito (mais concisa)
+const calcularQuadrado = (numero) => numero * numero;
+
+// Se tivesse apenas um parâmetro, poderia até remover os parênteses
+const calcularQuadrado = numero => numero * numero;
+Arquivo script1.js completo com Arrow Function:
+javascript
+// Substituindo a função tradicional por arrow function
+const calcularQuadrado = (numero) => numero * numero;
+
+document.getElementById('numeroForm').addEventListener('submit', (event) => {
+    event.preventDefault(); // Impede o envio do formulário
+    
+    // Obtém o valor do número digitado
+    const numero = parseFloat(document.getElementById('numero').value);
+    
+    // Chama a função arrow para calcular o quadrado
+    const resultado = calcularQuadrado(numero);
+    
+    // Exibe o resultado na página
+    document.getElementById('resultado').textContent = `O quadrado é: ${resultado}`;
+});
+Arquivo formulario1.html (ajustado):
+html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de Formulário com JavaScript</title>
+    <script src="script1.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="card" style="width: 28rem; margin: 20px auto;">
+        <img src="img/dobro.jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h1>Calculadora de Quadrado</h1>
+            <form id="numeroForm">
+                <label for="numero">Digite um número:</label>
+                <input type="number" id="numero" name="numero" class="form-control mb-2" required>
+                <button type="submit" class="btn btn-success">Calcular Quadrado</button>
+            </form>
+            <h5 class="card-title mt-3">Resultado:</h5>
+            <p class="card-text" id="resultado"></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
+📝 Atividade 1 - Nível Fácil
+Enunciado:
+Modifique a função que trata o evento submit do formulário para também ser uma arrow function, mantendo a mesma funcionalidade.
+
+Solução:
+javascript
+// Arrow function para o cálculo
+const calcularQuadrado = (numero) => numero * numero;
+
+// Arrow function para o evento
+document.getElementById('numeroForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    const numero = parseFloat(document.getElementById('numero').value);
+    const resultado = calcularQuadrado(numero);
+    
+    document.getElementById('resultado').textContent = `O quadrado de ${numero} é ${resultado}`;
+});
+📝 Atividade 2 - Nível Intermediário
+Enunciado:
+Crie uma calculadora que ofereça três operações: quadrado, cubo e raiz quadrada. Utilize arrow functions para cada operação e adicione um elemento <select> no HTML para o usuário escolher a operação desejada.
+
+Código completo da solução:
+HTML (formulario1.html atualizado):
+html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora com Arrow Functions</title>
+    <script src="script1.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="card" style="width: 28rem; margin: 20px auto;">
+        <div class="card-body">
+            <h1>Calculadora Matemática</h1>
+            <form id="numeroForm">
+                <div class="mb-3">
+                    <label for="numero" class="form-label">Digite um número:</label>
+                    <input type="number" id="numero" class="form-control" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="operacao" class="form-label">Escolha a operação:</label>
+                    <select id="operacao" class="form-select">
+                        <option value="quadrado">Quadrado (n²)</option>
+                        <option value="cubo">Cubo (n³)</option>
+                        <option value="raiz">Raiz Quadrada (√n)</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-success">Calcular</button>
+            </form>
+            
+            <hr>
+            <h5>Resultado:</h5>
+            <p class="card-text" id="resultado"></p>
+        </div>
+    </div>
+</body>
+</html>
+JavaScript (script1.js com arrow functions):
+javascript
+// Arrow functions para cada operação matemática
+const quadrado = (num) => num * num;
+const cubo = (num) => num * num * num;
+const raizQuadrada = (num) => Math.sqrt(num);
+
+// Função para formatar o resultado (também é arrow function)
+const formatarResultado = (num, operacao, resultado) => {
+    const operacoes = {
+        quadrado: `O quadrado de ${num} é ${resultado}`,
+        cubo: `O cubo de ${num} é ${resultado}`,
+        raiz: `A raiz quadrada de ${num} é ${resultado.toFixed(2)}`
+    };
+    return operacoes[operacao] || 'Operação inválida';
+};
+
+// Event handler como arrow function
+document.getElementById('numeroForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    // Obtendo valores do formulário
+    const numero = parseFloat(document.getElementById('numero').value);
+    const operacao = document.getElementById('operacao').value;
+    
+    // Validando entrada
+    if (isNaN(numero)) {
+        document.getElementById('resultado').textContent = 'Por favor, digite um número válido!';
+        return;
+    }
+    
+    // Executando a operação escolhida
+    let resultado;
+    switch(operacao) {
+        case 'quadrado':
+            resultado = quadrado(numero);
+            break;
+        case 'cubo':
+            resultado = cubo(numero);
+            break;
+        case 'raiz':
+            if (numero < 0) {
+                document.getElementById('resultado').textContent = 'Não existe raiz quadrada de número negativo!';
+                return;
+            }
+            resultado = raizQuadrada(numero);
+            break;
+    }
+    
+    // Exibindo resultado formatado
+    document.getElementById('resultado').textContent = formatarResultado(numero, operacao, resultado);
+});
+
+// Exemplo de arrow function com array methods (demonstração adicional)
+console.log('Exemplos de números:', [2, 3, 4].map(quadrado)); // [4, 9, 16]
+🎯 Explicação do uso de Arrow Functions neste contexto:
+quadrado, cubo, raizQuadrada: Arrow functions simples com retorno implícito
+
+formatarResultado: Arrow function com múltiplas linhas (precisa das chaves e return)
+
+Event listener: Arrow function como callback do evento submit
+
+map(quadrado): Demonstra como arrow functions são ótimas para métodos de array
+
+Vantagens observadas:
+Código mais conciso e legível
+
+Comportamento previsível do this (embora não usado aqui)
+
+Perfeito para funções puras e operações matemáticas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===============================
+
+📝 Atividade 1 - Nível Fácil
+Enunciado:
+Modifique o arquivo script1.js para substituir a função tradicional calcularQuadrado por uma função arrow.
+
+Solução:
+javascript
+document.getElementById('numeroForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const numero = parseFloat(document.getElementById('numero').value);
+    const resultado = calcularQuadrado(numero);
+    document.getElementById('resultado').textContent = resultado;
+});
+
+// Função tradicional substituída por arrow function
+const calcularQuadrado = (numero) => {
+    return numero * numero;
+};
+
+// Versão ainda mais simplificada (opcional):
+// const calcularQuadrado = numero => numero * numero;
+📝 Atividade 2 - Nível Intermediário
+Enunciado:
+Amplie a calculadora para oferecer duas operações: quadrado e cubo do número. Utilize funções arrow para ambas as operações e adicione um seletor (radio button ou select) no HTML para o usuário escolher a operação desejada.
+
+Modificações necessárias:
+HTML (adicione dentro do formulário):
+html
+<div class="mt-3">
+    <label>Escolha a operação:</label><br>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="operacao" id="opQuadrado" value="quadrado" checked>
+        <label class="form-check-label" for="opQuadrado">Quadrado</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="operacao" id="opCubo" value="cubo">
+        <label class="form-check-label" for="opCubo">Cubo</label>
+    </div>
+</div>
+JavaScript (script1.js atualizado):
+javascript
+document.getElementById('numeroForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const numero = parseFloat(document.getElementById('numero').value);
+    const operacao = document.querySelector('input[name="operacao"]:checked').value;
+    
+    let resultado;
+    
+    // Utilizando arrow functions para as operações
+    const quadrado = (n) => n * n;
+    const cubo = (n) => n * n * n;
+    
+    if (operacao === 'quadrado') {
+        resultado = quadrado(numero);
+        document.getElementById('resultado').textContent = `O quadrado de ${numero} é ${resultado}`;
+    } else {
+        resultado = cubo(numero);
+        document.getElementById('resultado').textContent = `O cubo de ${numero} é ${resultado}`;
+    }
+});
+Explicação da solução:
+Criamos duas funções arrow: quadrado e cubo
+
+Ambas utilizam a sintaxe reduzida com retorno implícito
+
+Adicionamos botões de rádio para o usuário escolher a operação
+
+O resultado é exibido de forma mais descritiva
+
+✅ Benefícios das funções arrow neste contexto:
+Código mais limpo e fácil de ler
+
+Menos propenso a erros com o escopo do this
+
+Ideal para funções simples como operações matemáticas
+
+Perfeito para callbacks (como em eventos e métodos de array)
+
+As funções arrow são especialmente úteis em situações como esta, onde temos operações matemáticas simples e funções que serão usadas como callbacks.
