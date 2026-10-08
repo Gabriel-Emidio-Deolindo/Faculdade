@@ -1,34 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Criar conta | Área restrita</title>
-	<link rel="stylesheet" href="../style.css">
-</head>
-<body>
-	<main class="page-shell">
-		<section class="auth-card" aria-labelledby="register-title">
-			<div class="brand-mark" aria-hidden="true">A</div>
-			<p class="eyebrow">Primeiro acesso</p>
-			<h1 id="register-title">Crie sua conta</h1>
-			<p class="intro">Preencha seus dados para acessar a área restrita.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar conta | Área restrita</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="auth-card" aria-labelledby="register-title">
+        <div class="brand-mark" aria-hidden="true">A</div>
+        <p class="eyebrow">Primeiro acesso</p>
+        <h1 id="register-title">Crie sua conta</h1>
+        <p class="intro">Preencha seus dados para acessar a área restrita.</p>
 
-			<form id="cadastro-form" class="auth-form">
-				<label for="nome">Nome</label>
-				<input type="text" id="nome" name="nome" autocomplete="name" required>
+        <form id="cadastro-form" class="auth-form">
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            autocomplete="name"
+            required
+          />
 
-				<label for="email">E-mail</label>
-				<input type="email" id="email" name="email" autocomplete="email" required>
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+          />
 
-				<label for="senha">Senha</label>
-				<input type="password" id="senha" name="senha" autocomplete="new-password" minlength="6" required>
+          <label for="senha">Senha</label>
+          <input
+            type="password"
+            id="senha"
+            name="senha"
+            autocomplete="new-password"
+            minlength="6"
+            required
+          />
 
-				<button type="submit" class="button button-primary">Criar conta</button>
-			</form>
-			<p class="form-footer">Já possui uma conta? <a href="../login/login.html">Entrar</a></p>
-		</section>
-	</main>
-	<script type="module" src="cadastro.js"></script>
-</body>
+          <button type="submit" class="button button-primary">
+            Criar conta
+          </button>
+        </form>
+        <p class="form-footer">
+          Já possui uma conta? <a href="../login/login.html">Entrar</a>
+        </p>
+      </section>
+    </main>
+    <script type="module" src="cadastro.js"></script>
+  </body>
 </html>
